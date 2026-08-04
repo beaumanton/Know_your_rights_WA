@@ -47,7 +47,7 @@ const LAW_LINKS = {
   },
   liquor: {
     name: "Liquor Control Act 1988 (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a505.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_49727.htm/$FILE/Liquor%20Control%20Act%201988%20-%20%5B08-y0-00%5D.html?OpenElement",
   },
 };
 
