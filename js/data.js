@@ -234,7 +234,7 @@ const SCENARIOS = [
       {
         heading: "Get legal advice first",
         body:
-          "Before any interview, contact Legal Aid WA (1300 650 579) or, for Aboriginal and Torres Strait Islander people, the Aboriginal Legal Service of WA (1800 019 900). Saying “I want to speak to a lawyer before answering questions” is always reasonable.",
+          "Before any interview, get legal advice — contact Slee Anderson & Pidgeon Lawyers, or for free assistance Legal Aid WA (1300 650 579) or, for Aboriginal and Torres Strait Islander people, the Aboriginal Legal Service of WA (1800 019 900). Saying “I want to speak to a lawyer before answering questions” is always reasonable.",
       },
     ],
     laws: ["cia"],
@@ -547,7 +547,7 @@ const FAQS = [
   {
     q: "Is this app legal advice?",
     detail:
-      "No. This app provides general legal information for Western Australia only. Laws change and every situation is different. For advice about your specific circumstances, contact Legal Aid WA, ALSWA, a community legal centre, or a private lawyer.",
+      "No. This app provides general legal information for Western Australia only. Laws change and every situation is different. For advice about your specific circumstances, make an appointment with Slee Anderson & Pidgeon Lawyers — offices in Bunbury, Busselton, Mandurah and Margaret River.",
   },
 ];
 
@@ -566,4 +566,4 @@ const SITUATIONS = [
 ];
 
 const DISCLAIMER =
-  "This app provides general legal information about Western Australia only — it is not legal advice. Laws change and every situation is different. All referenced legislation is publicly available via legislation.wa.gov.au. For advice, contact Legal Aid WA (1300 650 579), the Aboriginal Legal Service of WA (1800 019 900), or a lawyer.";
+  "This app provides general legal information about Western Australia only — it is not legal advice. Laws change and every situation is different. All referenced legislation is publicly available via legislation.wa.gov.au. For advice about your specific situation, make an appointment with Slee Anderson & Pidgeon Lawyers.";

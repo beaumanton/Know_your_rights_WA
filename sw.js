@@ -1,6 +1,6 @@
 /* Know Your Rights - WA : offline cache */
 
-const CACHE = "kyr-wa-v2";
+const CACHE = "kyr-wa-v3";
 const ASSETS = [
   "./",
   "index.html",
