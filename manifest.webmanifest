@@ -1,11 +1,11 @@
 {
   "name": "Know Your Rights - WA",
   "short_name": "KYR WA",
-  "description": "Understand your rights and police powers during interactions with police in Western Australia.",
+  "description": "Understand your rights and police powers during interactions with police in Western Australia. Provided by Slee Anderson & Pidgeon Lawyers.",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#f4f3ee",
+  "theme_color": "#f4f3ee",
   "icons": [
     {
       "src": "icons/icon-192.png",

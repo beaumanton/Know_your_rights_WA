@@ -4,6 +4,12 @@
  * All referenced legislation is publicly available at legislation.wa.gov.au
  */
 
+const FIRM = {
+  name: "Slee Anderson & Pidgeon Lawyers",
+  site: "https://www.sleeanderson.com.au",
+  contact: "https://www.sleeanderson.com.au/contact",
+};
+
 const LAW_LINKS = {
   cia: {
     name: "Criminal Investigation Act 2006 (WA)",
