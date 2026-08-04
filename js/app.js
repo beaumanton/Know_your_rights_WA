@@ -57,7 +57,11 @@ function topicCardHtml(s) {
 }
 
 function disclaimerHtml() {
-  return `<div class="notice">⚖️ ${esc(DISCLAIMER)}</div>`;
+  return `<div class="notice">⚖️ ${esc(DISCLAIMER)}</div>
+    <div class="brand-footer">
+      <a href="${FIRM.site}" target="_blank" rel="noopener"><img src="assets/sap-logo.png" alt="Slee Anderson &amp; Pidgeon Lawyers" /></a>
+      Provided by Slee Anderson &amp; Pidgeon Lawyers — serving the South West since 1919.
+    </div>`;
 }
 
 /* ---------- Views ---------- */
@@ -66,6 +70,7 @@ function renderHome() {
   const essentials = SCENARIOS.filter((s) => s.essential);
   const common = SCENARIOS.filter((s) => !s.essential);
   app.innerHTML = `
+    <a href="${FIRM.site}" target="_blank" rel="noopener"><img class="brand-logo" src="assets/sap-logo.png" alt="Slee Anderson &amp; Pidgeon Lawyers" /></a>
     <h1 class="app-title">Know Your Rights - WA</h1>
     <p class="app-subtitle">
       Understand your rights and police powers during interactions with police in WA.<br />
@@ -98,6 +103,15 @@ function renderHome() {
         </span>
         <span class="chev">›</span>
       </button>
+
+      <a class="action-card secondary" href="${FIRM.contact}" target="_blank" rel="noopener">
+        <span class="card-icon">🤝</span>
+        <span>
+          <span class="card-title" style="display:block">Need a Lawyer?</span>
+          <span class="card-sub">Make an appointment with Slee Anderson &amp; Pidgeon</span>
+        </span>
+        <span class="chev">›</span>
+      </a>
 
       <h2 class="section-heading">Common Scenarios</h2>
       <div class="chip-row">
@@ -340,7 +354,12 @@ function renderContacts() {
   app.innerHTML = `
     <button class="back-btn" data-view="home">‹ Back</button>
     <h1 class="detail-title">📞 Legal Help</h1>
-    <p class="detail-summary">Free and low-cost legal help in Western Australia.</p>
+    <p class="detail-summary">Where to get legal help in Western Australia.</p>
+    <div class="detail-section">
+      <h3>Slee Anderson &amp; Pidgeon Lawyers</h3>
+      <p>Serving the South West since 1919, with offices in Bunbury, Busselton, Mandurah and Margaret River. Criminal defence, family law, wills &amp; estates, commercial and more.</p>
+      <p><a class="cta-btn" href="${FIRM.contact}" target="_blank" rel="noopener">Make an Appointment</a></p>
+    </div>
     <div class="detail-section">
       <h3>Legal Aid WA</h3>
       <p>Infoline: <a href="tel:1300650579">1300 650 579</a> (business hours)</p>
