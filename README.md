@@ -18,6 +18,9 @@ counterpart to Know Your Rights - QLD.
   [legislation.wa.gov.au](https://www.legislation.wa.gov.au).
 - **Legal Help contacts** — Legal Aid WA, ALSWA, community legal centres, and
   police complaint bodies.
+- **Works offline** — a service worker caches the whole app on first visit, so
+  it opens instantly with no signal. Content updates are fetched in the
+  background on the next online visit.
 
 ## WA-specific notes
 
