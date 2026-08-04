@@ -39,7 +39,7 @@ const LAW_LINKS = {
   },
   yoa: {
     name: "Young Offenders Act 1994 (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a1076.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_49140.htm/$FILE/Young%20Offenders%20Act%201994%20-%20%5B07-w0-00%5D.html?OpenElement",
   },
   bail: {
     name: "Bail Act 1982 (WA)",
