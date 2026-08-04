@@ -35,7 +35,7 @@ const LAW_LINKS = {
   },
   sda: {
     name: "Surveillance Devices Act 1998 (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a904.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_45890.htm/$FILE/Surveillance%20Devices%20Act%201998%20-%20%5B02-g0-00%5D.html?OpenElement",
   },
   yoa: {
     name: "Young Offenders Act 1994 (WA)",
