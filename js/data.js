@@ -7,15 +7,15 @@
 const LAW_LINKS = {
   cia: {
     name: "Criminal Investigation Act 2006 (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146449.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_48864.htm/$FILE/Criminal%20Investigation%20Act%202006%20-%20%5B04-e0-00%5D.html?OpenElement",
   },
   ciipa: {
     name: "Criminal Investigation (Identifying People) Act 2002 (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146447.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_49138.htm/$FILE/Criminal%20Investigation%20(Identifying%20People)%20Act%202002%20-%20%5B04-r0-00%5D.html?OpenElement",
   },
   code: {
     name: "Criminal Code (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_49336.htm/$FILE/Criminal%20Code%20Act%20Compilation%20Act%201913%20-%20%5B19-aq0-00%5D.html?OpenElement",
   },
   rta: {
     name: "Road Traffic Act 1974 (WA)",
@@ -23,15 +23,15 @@ const LAW_LINKS = {
   },
   rtaa: {
     name: "Road Traffic (Administration) Act 2008 (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146836.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_48196.htm/$FILE/Road%20Traffic%20(Administration)%20Act%202008%20-%20%5B02-m0-00%5D.html?OpenElement",
   },
   moda: {
     name: "Misuse of Drugs Act 1981 (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a614.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_49366.htm/$FILE/Misuse%20Of%20Drugs%20Act%201981%20-%20%5B08-i0-00%5D.html?OpenElement",
   },
   weapons: {
     name: "Weapons Act 1999 (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a1042.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_48364.htm/$FILE/Weapons%20Act%201999%20-%20%5B01-h0-00%5D.html?OpenElement",
   },
   sda: {
     name: "Surveillance Devices Act 1998 (WA)",
@@ -43,7 +43,7 @@ const LAW_LINKS = {
   },
   bail: {
     name: "Bail Act 1982 (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a54.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_48089.htm/$FILE/Bail%20Act%201982%20-%20%5B09-z0-00%5D.html?OpenElement",
   },
   liquor: {
     name: "Liquor Control Act 1988 (WA)",
