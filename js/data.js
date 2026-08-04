@@ -19,7 +19,7 @@ const LAW_LINKS = {
   },
   rta: {
     name: "Road Traffic Act 1974 (WA)",
-    url: "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a821.html",
+    url: "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_48198.htm/$FILE/Road%20Traffic%20Act%201974%20-%20%5B14-t0-00%5D.html?OpenElement",
   },
   rtaa: {
     name: "Road Traffic (Administration) Act 2008 (WA)",
