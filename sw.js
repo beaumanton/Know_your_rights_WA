@@ -1,14 +1,17 @@
 /* Know Your Rights - WA : offline cache */
 
-const CACHE = "kyr-wa-v3";
+const CACHE = "kyr-wa-v4";
 const ASSETS = [
   "./",
   "index.html",
   "css/styles.css",
+  "js/icons.js",
   "js/data.js",
   "js/app.js",
   "manifest.webmanifest",
   "assets/sap-logo.png",
+  "assets/fonts/merriweather.woff2",
+  "assets/fonts/mulish.woff2",
   "icons/icon-180.png",
   "icons/icon-192.png",
   "icons/icon-512.png",
