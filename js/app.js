@@ -29,6 +29,8 @@ function esc(s) {
   return d.innerHTML;
 }
 
+const chev = `<span class="chev">${svgIcon("chevron", 18)}</span>`;
+
 function lawRefsHtml(keys) {
   if (!keys || !keys.length) return "";
   const items = keys
@@ -37,31 +39,41 @@ function lawRefsHtml(keys) {
     .map(
       (law) => `
       <a class="law-ref" href="${law.url}" target="_blank" rel="noopener">
-        <span class="law-name">📖 ${esc(law.name)}</span>
-        <span class="law-detail">View on legislation.wa.gov.au</span>
+        ${discIcon("book", "sm")}
+        <span>
+          <span class="law-name">${esc(law.name)}</span>
+          <span class="law-detail">View on legislation.wa.gov.au</span>
+        </span>
       </a>`
     )
     .join("");
-  return `<div class="law-refs"><h3 style="color:var(--accent);font-size:1.1rem;margin:18px 0 10px">Legislation / Policy</h3>${items}</div>`;
+  return `<div class="law-refs"><h3>Legislation / Policy</h3>${items}</div>`;
 }
 
 function topicCardHtml(s) {
   return `
     <button class="topic-card" data-scenario="${s.id}">
-      <span class="card-icon">${s.icon}</span>
+      ${discIcon(s.icon)}
       <span>
         <span class="topic-title">${esc(s.title)}</span>
-        <span class="topic-sub" style="display:block">${esc(s.summary)}</span>
+        <span class="topic-sub">${esc(s.summary)}</span>
       </span>
     </button>`;
 }
 
-function disclaimerHtml() {
-  return `<div class="notice">⚖️ ${esc(DISCLAIMER)}</div>
+function footerHtml() {
+  return `
+    <div class="notice">${esc(DISCLAIMER)}</div>
     <div class="brand-footer">
-      <a href="${FIRM.site}" target="_blank" rel="noopener"><img src="assets/sap-logo.png" alt="Slee Anderson &amp; Pidgeon Lawyers" /></a>
-      Provided by Slee Anderson &amp; Pidgeon Lawyers — serving the South West since 1919.
+      <a href="${FIRM.site}" target="_blank" rel="noopener">
+        <img src="assets/sap-logo.png" alt="Slee Anderson &amp; Pidgeon Lawyers" />
+      </a>
+      <span>Serving the South West since 1919</span>
     </div>`;
+}
+
+function sectionHeading(name, text) {
+  return `<h2 class="section-heading">${esc(text)}</h2><hr class="section-rule" />`;
 }
 
 /* ---------- Views ---------- */
@@ -70,16 +82,18 @@ function renderHome() {
   const essentials = SCENARIOS.filter((s) => s.essential);
   const common = SCENARIOS.filter((s) => !s.essential);
   app.innerHTML = `
-    <a href="${FIRM.site}" target="_blank" rel="noopener"><img class="brand-logo" src="assets/sap-logo.png" alt="Slee Anderson &amp; Pidgeon Lawyers" /></a>
-    <h1 class="app-title">Know Your Rights - WA</h1>
+    <a href="${FIRM.site}" target="_blank" rel="noopener">
+      <img class="brand-logo" src="assets/sap-logo.png" alt="Slee Anderson &amp; Pidgeon Lawyers" />
+    </a>
+    <h1 class="app-title">Know Your Rights &mdash; WA</h1>
+    <hr class="app-rule" />
     <p class="app-subtitle">
-      Understand your rights and police powers during interactions with police in WA.<br />
-      All referenced legislation/policy is publicly available and accessible via the
-      'Legislation/Policy' links in each topic.
+      Understand your rights and police powers during interactions with police in
+      Western Australia. Every topic links to the legislation it relies on.
     </p>
 
     <div class="search-wrap">
-      <span class="search-icon">🔎</span>
+      <span class="search-icon">${svgIcon("search", 18)}</span>
       <input class="search-input" id="searchInput" type="search"
         placeholder="Search your rights..." autocomplete="off" />
     </div>
@@ -87,47 +101,46 @@ function renderHome() {
 
     <div id="homeContent">
       <button class="action-card primary" data-view="situation">
-        <span class="card-icon">❓</span>
+        ${discIcon("question", "inv")}
         <span>
-          <span class="card-title" style="display:block">Check Your Situation</span>
+          <span class="card-title">Check Your Situation</span>
           <span class="card-sub">Get relevant information for your scenario</span>
         </span>
-        <span class="chev">›</span>
+        ${chev}
       </button>
 
-      <button class="action-card secondary" data-view="canpolice">
-        <span class="card-icon">⚖️</span>
+      <button class="action-card" data-view="canpolice">
+        ${discIcon("scales")}
         <span>
-          <span class="card-title" style="display:block">Can Police...?</span>
+          <span class="card-title">Can Police...?</span>
           <span class="card-sub">Quick answers to common police powers</span>
         </span>
-        <span class="chev">›</span>
+        ${chev}
       </button>
 
-      <a class="action-card secondary" href="${FIRM.contact}" target="_blank" rel="noopener">
-        <span class="card-icon">🤝</span>
+      <a class="action-card" href="${FIRM.contact}" target="_blank" rel="noopener">
+        ${discIcon("briefcase")}
         <span>
-          <span class="card-title" style="display:block">Need a Lawyer?</span>
+          <span class="card-title">Need a Lawyer?</span>
           <span class="card-sub">Make an appointment with Slee Anderson &amp; Pidgeon</span>
         </span>
-        <span class="chev">›</span>
+        ${chev}
       </a>
 
-      <h2 class="section-heading">Common Scenarios</h2>
       <div class="chip-row">
-        <button class="chip accent" data-view="favourites">🔖 Favourites</button>
-        <button class="chip" data-view="norights">🏛️ Your Rights in WA</button>
-        <button class="chip" data-view="faq">❓ FAQ</button>
-        <button class="chip" data-view="contacts">📞 Legal Help</button>
+        <button class="chip" data-view="favourites">${svgIcon("bookmark")} Favourites</button>
+        <button class="chip" data-view="norights">${svgIcon("columns")} Rights in WA</button>
+        <button class="chip" data-view="faq">${svgIcon("question")} FAQ</button>
+        <button class="chip" data-view="contacts">${svgIcon("phone")} Legal Help</button>
       </div>
 
-      <h2 class="section-heading"><span class="heading-icon">★</span> Essential Rights</h2>
+      ${sectionHeading("star", "Essential Rights")}
       ${essentials.map(topicCardHtml).join("")}
 
-      <h2 class="section-heading">Scenarios</h2>
+      ${sectionHeading("list", "Scenarios")}
       ${common.map(topicCardHtml).join("")}
 
-      ${disclaimerHtml()}
+      ${footerHtml()}
     </div>
   `;
 
@@ -150,65 +163,79 @@ function renderHome() {
     });
     const qaHits = CAN_POLICE.filter((c) => (c.q + " " + c.detail).toLowerCase().includes(q));
     results.innerHTML =
-      (hits.length || qaHits.length
+      hits.length || qaHits.length
         ? hits.map(topicCardHtml).join("") +
           qaHits
             .map(
-              (c, i) => `
+              (c) => `
             <button class="topic-card" data-view="canpolice">
-              <span class="card-icon">⚖️</span>
+              ${discIcon("scales")}
               <span>
                 <span class="topic-title">${esc(c.q)}</span>
-                <span class="topic-sub" style="display:block">See 'Can Police...?' quick answers</span>
+                <span class="topic-sub">See 'Can Police...?' quick answers</span>
               </span>
             </button>`
             )
             .join("")
-        : `<p class="empty-msg">No results for “${esc(input.value)}”.</p>`);
+        : `<p class="empty-msg">No results for &ldquo;${esc(input.value)}&rdquo;.</p>`;
     bindNav(results);
   });
 
   bindNav(app);
   setActiveTab("home");
+  window.scrollTo(0, 0);
 }
 
 function renderAll() {
   app.innerHTML = `
     <h1 class="app-title">All Topics</h1>
+    <hr class="app-rule" />
     <p class="app-subtitle">Every scenario, quick answer and piece of referenced legislation.</p>
 
-    <h2 class="section-heading">Scenarios</h2>
+    ${sectionHeading("list", "Scenarios")}
     ${SCENARIOS.map(topicCardHtml).join("")}
 
-    <h2 class="section-heading">Quick Answers</h2>
-    <button class="action-card secondary" data-view="canpolice">
-      <span class="card-icon">⚖️</span>
-      <span><span class="card-title" style="display:block">Can Police...?</span>
-      <span class="card-sub">${CAN_POLICE.length} common questions</span></span>
-      <span class="chev">›</span>
+    ${sectionHeading("question", "Quick Answers")}
+    <button class="action-card" data-view="canpolice">
+      ${discIcon("scales")}
+      <span>
+        <span class="card-title">Can Police...?</span>
+        <span class="card-sub">${CAN_POLICE.length} common questions</span>
+      </span>
+      ${chev}
     </button>
-    <button class="action-card secondary" data-view="faq">
-      <span class="card-icon">❓</span>
-      <span><span class="card-title" style="display:block">FAQ</span>
-      <span class="card-sub">${FAQS.length} frequently asked questions</span></span>
-      <span class="chev">›</span>
+    <button class="action-card" data-view="faq">
+      ${discIcon("question")}
+      <span>
+        <span class="card-title">FAQ</span>
+        <span class="card-sub">${FAQS.length} frequently asked questions</span>
+      </span>
+      ${chev}
     </button>
 
-    <h2 class="section-heading">Legislation / Policy</h2>
+    ${sectionHeading("book", "Legislation / Policy")}
     ${Object.values(LAW_LINKS)
       .map(
         (law) => `
       <a class="law-ref" href="${law.url}" target="_blank" rel="noopener">
-        <span class="law-name">📖 ${esc(law.name)}</span>
-        <span class="law-detail">View on legislation.wa.gov.au</span>
+        ${discIcon("book", "sm")}
+        <span>
+          <span class="law-name">${esc(law.name)}</span>
+          <span class="law-detail">View on legislation.wa.gov.au</span>
+        </span>
       </a>`
       )
       .join("")}
 
-    ${disclaimerHtml()}
+    ${footerHtml()}
   `;
   bindNav(app);
   setActiveTab("all");
+  window.scrollTo(0, 0);
+}
+
+function backBtn(view) {
+  return `<button class="back-btn" data-view="${view || "home"}">${svgIcon("back", 15)} Back</button>`;
 }
 
 function renderScenario(id, backView) {
@@ -216,11 +243,12 @@ function renderScenario(id, backView) {
   if (!s) return renderHome();
   const isFav = getFavs().includes(id);
   app.innerHTML = `
-    <button class="back-btn" data-view="${backView || "home"}">‹ Back</button>
+    ${backBtn(backView)}
     <div class="detail-header">
-      <h1 class="detail-title">${s.icon} ${esc(s.title)}</h1>
+      ${discIcon(s.icon)}
+      <h1 class="detail-title">${esc(s.title)}</h1>
       <button class="fav-btn ${isFav ? "active" : ""}" id="favBtn"
-        aria-label="Toggle favourite">${isFav ? "★" : "☆"}</button>
+        aria-label="Toggle favourite">${svgIcon("bookmark", 22)}</button>
     </div>
     <p class="detail-summary">${esc(s.summary)}</p>
     ${s.sections
@@ -233,13 +261,11 @@ function renderScenario(id, backView) {
       )
       .join("")}
     ${lawRefsHtml(s.laws)}
-    ${disclaimerHtml()}
+    ${footerHtml()}
   `;
   document.getElementById("favBtn").addEventListener("click", (e) => {
     toggleFav(id);
-    const nowFav = getFavs().includes(id);
-    e.currentTarget.classList.toggle("active", nowFav);
-    e.currentTarget.textContent = nowFav ? "★" : "☆";
+    e.currentTarget.classList.toggle("active", getFavs().includes(id));
   });
   bindNav(app);
   window.scrollTo(0, 0);
@@ -247,13 +273,14 @@ function renderScenario(id, backView) {
 
 function renderCanPolice() {
   app.innerHTML = `
-    <button class="back-btn" data-view="home">‹ Back</button>
-    <h1 class="detail-title">Can Police...?</h1>
-    <p class="detail-summary">Quick answers to common questions about police powers in WA. Tap a question to expand it.</p>
+    ${backBtn("home")}
+    <h1 class="app-title">Can Police...?</h1>
+    <hr class="app-rule" />
+    <p class="app-subtitle">Quick answers on police powers in WA. Tap a question to expand it.</p>
     ${CAN_POLICE.map(
       (c, i) => `
       <div class="qa-item">
-        <button class="qa-q" data-qa="${i}">${esc(c.q)}<span class="qa-chev">›</span></button>
+        <button class="qa-q" data-qa="${i}">${esc(c.q)}${chev}</button>
         <div class="qa-a">
           <span class="answer-badge ${c.a}">${c.a === "depends" ? "It depends" : c.a}</span>
           <p>${esc(c.detail)}</p>
@@ -261,7 +288,7 @@ function renderCanPolice() {
         </div>
       </div>`
     ).join("")}
-    ${disclaimerHtml()}
+    ${footerHtml()}
   `;
   bindAccordions();
   bindNav(app);
@@ -270,17 +297,18 @@ function renderCanPolice() {
 
 function renderFaq() {
   app.innerHTML = `
-    <button class="back-btn" data-view="home">‹ Back</button>
-    <h1 class="detail-title">FAQ</h1>
-    <p class="detail-summary">Frequently asked questions about your rights in Western Australia.</p>
+    ${backBtn("home")}
+    <h1 class="app-title">FAQ</h1>
+    <hr class="app-rule" />
+    <p class="app-subtitle">Frequently asked questions about your rights in Western Australia.</p>
     ${FAQS.map(
       (f, i) => `
       <div class="qa-item">
-        <button class="qa-q" data-qa="${i}">${esc(f.q)}<span class="qa-chev">›</span></button>
+        <button class="qa-q" data-qa="${i}">${esc(f.q)}${chev}</button>
         <div class="qa-a"><p>${esc(f.detail)}</p></div>
       </div>`
     ).join("")}
-    ${disclaimerHtml()}
+    ${footerHtml()}
   `;
   bindAccordions();
   bindNav(app);
@@ -289,17 +317,19 @@ function renderFaq() {
 
 function renderSituation() {
   app.innerHTML = `
-    <button class="back-btn" data-view="home">‹ Back</button>
-    <h1 class="detail-title">Check Your Situation</h1>
-    <p class="detail-summary">What’s happening? Pick the closest match to see your rights and the relevant police powers.</p>
+    ${backBtn("home")}
+    <h1 class="app-title">Check Your Situation</h1>
+    <hr class="app-rule" />
+    <p class="app-subtitle">What&rsquo;s happening? Pick the closest match to see your rights and the relevant police powers.</p>
     ${SITUATIONS.map(
       (s) => `
       <button class="situation-btn" data-scenario="${s.target}" data-back="situation">
-        <span class="card-icon" style="width:42px;height:42px;font-size:1.2rem">${s.icon}</span>
-        ${esc(s.label)}
-        <span class="chev" style="margin-left:auto;color:var(--accent)">›</span>
+        ${discIcon(s.icon, "sm")}
+        <span>${esc(s.label)}</span>
+        ${chev}
       </button>`
     ).join("")}
+    ${footerHtml()}
   `;
   bindNav(app);
   window.scrollTo(0, 0);
@@ -309,13 +339,15 @@ function renderFavourites() {
   const favs = getFavs();
   const items = SCENARIOS.filter((s) => favs.includes(s.id));
   app.innerHTML = `
-    <button class="back-btn" data-view="home">‹ Back</button>
-    <h1 class="detail-title">🔖 Favourites</h1>
+    ${backBtn("home")}
+    <h1 class="app-title">Favourites</h1>
+    <hr class="app-rule" />
     ${
       items.length
         ? items.map(topicCardHtml).join("")
-        : `<p class="empty-msg">No favourites yet.<br/>Open any topic and tap the ☆ star to save it here.</p>`
+        : `<p class="empty-msg">No favourites yet.<br />Open any topic and tap the bookmark to save it here.</p>`
     }
+    ${footerHtml()}
   `;
   bindNav(app);
   window.scrollTo(0, 0);
@@ -323,9 +355,10 @@ function renderFavourites() {
 
 function renderNoRightsAct() {
   app.innerHTML = `
-    <button class="back-btn" data-view="home">‹ Back</button>
-    <h1 class="detail-title">🏛️ Your Rights in WA</h1>
-    <p class="detail-summary">Where your rights actually come from in Western Australia.</p>
+    ${backBtn("home")}
+    <h1 class="app-title">Your Rights in WA</h1>
+    <hr class="app-rule" />
+    <p class="app-subtitle">Where your rights actually come from in Western Australia.</p>
     <div class="detail-section">
       <h3>WA has no Human Rights Act</h3>
       <p>Unlike Queensland (Human Rights Act 2019), Victoria and the ACT, Western Australia has not enacted a Human Rights Act. There is no single WA law setting out rights like liberty, privacy or fair hearing.</p>
@@ -333,18 +366,18 @@ function renderNoRightsAct() {
     <div class="detail-section">
       <h3>So where do your rights come from?</h3>
       <ul>
-        <li><strong>Specific WA statutes</strong> — e.g. the Criminal Investigation Act 2006 limits police powers and gives arrested people rights (lawyer, interpreter, limited detention).</li>
-        <li><strong>The common law</strong> — the right to silence, the presumption of innocence, protection against unlawful arrest and trespass.</li>
-        <li><strong>The Australian Constitution</strong> — limited protections, including freedom of political communication.</li>
-        <li><strong>Federal law</strong> — anti-discrimination legislation and Australia’s international human rights obligations.</li>
+        <li><strong>Specific WA statutes</strong> &mdash; e.g. the Criminal Investigation Act 2006 limits police powers and gives arrested people rights (lawyer, interpreter, limited detention).</li>
+        <li><strong>The common law</strong> &mdash; the right to silence, the presumption of innocence, protection against unlawful arrest and trespass.</li>
+        <li><strong>The Australian Constitution</strong> &mdash; limited protections, including freedom of political communication.</li>
+        <li><strong>Federal law</strong> &mdash; anti-discrimination legislation and Australia&rsquo;s international human rights obligations.</li>
       </ul>
     </div>
     <div class="detail-section">
       <h3>What this means in practice</h3>
-      <p>Because there’s no general rights charter in WA, the detail of each specific law matters more. Knowing exactly when police can and can’t require something of you — which is what this app is for — is your main practical protection.</p>
+      <p>Because there&rsquo;s no general rights charter in WA, the detail of each specific law matters more. Knowing exactly when police can and can&rsquo;t require something of you &mdash; which is what this app is for &mdash; is your main practical protection.</p>
     </div>
     ${lawRefsHtml(["cia", "ciipa", "code"])}
-    ${disclaimerHtml()}
+    ${footerHtml()}
   `;
   bindNav(app);
   window.scrollTo(0, 0);
@@ -352,9 +385,10 @@ function renderNoRightsAct() {
 
 function renderContacts() {
   app.innerHTML = `
-    <button class="back-btn" data-view="home">‹ Back</button>
-    <h1 class="detail-title">📞 Legal Help</h1>
-    <p class="detail-summary">Where to get legal help in Western Australia.</p>
+    ${backBtn("home")}
+    <h1 class="app-title">Legal Help</h1>
+    <hr class="app-rule" />
+    <p class="app-subtitle">Where to get legal help in Western Australia.</p>
     <div class="detail-section">
       <h3>Slee Anderson &amp; Pidgeon Lawyers</h3>
       <p>Serving the South West since 1919, with offices in Bunbury, Busselton, Mandurah and Margaret River. Criminal defence, family law, wills &amp; estates, commercial and more.</p>
@@ -385,7 +419,7 @@ function renderContacts() {
       <p>Police, fire, ambulance: <a href="tel:000">000</a></p>
       <p>Police non-emergency: <a href="tel:131444">131 444</a></p>
     </div>
-    ${disclaimerHtml()}
+    ${footerHtml()}
   `;
   bindNav(app);
   window.scrollTo(0, 0);
@@ -406,9 +440,9 @@ const VIEWS = {
 
 function bindNav(root) {
   root.querySelectorAll("[data-view]").forEach((el) => {
+    if (el.tagName === "A") return;
     el.addEventListener("click", () => {
-      const v = el.getAttribute("data-view");
-      (VIEWS[v] || renderHome)();
+      (VIEWS[el.getAttribute("data-view")] || renderHome)();
     });
   });
   root.querySelectorAll("[data-scenario]").forEach((el) => {
@@ -433,9 +467,11 @@ function setActiveTab(tab) {
 }
 
 document.querySelectorAll(".nav-btn").forEach((b) => {
+  b.innerHTML =
+    svgIcon(b.getAttribute("data-nav") === "home" ? "navhome" : "list") +
+    `<span>${b.getAttribute("data-nav") === "home" ? "Home" : "All"}</span>`;
   b.addEventListener("click", () => {
-    const v = b.getAttribute("data-nav");
-    (VIEWS[v] || renderHome)();
+    (VIEWS[b.getAttribute("data-nav")] || renderHome)();
   });
 });
 

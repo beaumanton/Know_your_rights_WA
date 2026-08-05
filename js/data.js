@@ -61,7 +61,7 @@ const SCENARIOS = [
   {
     id: "right-to-silence",
     title: "Right to Silence",
-    icon: "🔇",
+    icon: "silence",
     essential: true,
     summary:
       "You do not have to answer police questions except to provide your personal details (name, date of birth and address) when lawfully required to do so.",
@@ -92,7 +92,7 @@ const SCENARIOS = [
   {
     id: "stopped-questioned",
     title: "Being Stopped & Questioned",
-    icon: "🚶",
+    icon: "person",
     summary:
       "Police can approach and talk to anyone, but you only have to stay or answer in limited situations.",
     sections: [
@@ -122,7 +122,7 @@ const SCENARIOS = [
   {
     id: "vehicle-stops",
     title: "Vehicle Stops & Traffic",
-    icon: "🚗",
+    icon: "car",
     summary:
       "You must stop when directed, provide your licence and details, and comply with alcohol and drug testing.",
     sections: [
@@ -152,7 +152,7 @@ const SCENARIOS = [
   {
     id: "searches",
     title: "Searches of You & Your Property",
-    icon: "🔍",
+    icon: "search",
     summary:
       "Most searches without a warrant require reasonable suspicion. Strip searches have strict extra rules.",
     sections: [
@@ -182,7 +182,7 @@ const SCENARIOS = [
   {
     id: "arrest",
     title: "Being Arrested",
-    icon: "⛓️",
+    icon: "cuffs",
     summary:
       "Police can arrest you without a warrant if they reasonably suspect you have committed an offence. You have important rights once arrested.",
     sections: [
@@ -212,7 +212,7 @@ const SCENARIOS = [
   {
     id: "police-interview",
     title: "Police Interviews",
-    icon: "🎙️",
+    icon: "mic",
     summary:
       "You do not have to take part in an interview. Speak to a lawyer first — always.",
     sections: [
@@ -234,7 +234,7 @@ const SCENARIOS = [
       {
         heading: "Get legal advice first",
         body:
-          "Before any interview, contact Legal Aid WA (1300 650 579) or, for Aboriginal and Torres Strait Islander people, the Aboriginal Legal Service of WA (1800 019 900). Saying “I want to speak to a lawyer before answering questions” is always reasonable.",
+          "Before any interview, get legal advice — contact Slee Anderson & Pidgeon Lawyers, or for free assistance Legal Aid WA (1300 650 579) or, for Aboriginal and Torres Strait Islander people, the Aboriginal Legal Service of WA (1800 019 900). Saying “I want to speak to a lawyer before answering questions” is always reasonable.",
       },
     ],
     laws: ["cia"],
@@ -242,7 +242,7 @@ const SCENARIOS = [
   {
     id: "move-on",
     title: "Move-On Orders",
-    icon: "🚫",
+    icon: "moveon",
     summary:
       "Police can order you to leave a public place for up to 24 hours in certain circumstances. Disobeying is an offence.",
     sections: [
@@ -267,7 +267,7 @@ const SCENARIOS = [
   {
     id: "police-home",
     title: "Police at Your Home",
-    icon: "🏠",
+    icon: "home",
     summary:
       "Police generally need a warrant, your consent, or a specific emergency power to enter your home.",
     sections: [
@@ -297,7 +297,7 @@ const SCENARIOS = [
   {
     id: "filming-police",
     title: "Filming & Recording Police",
-    icon: "📱",
+    icon: "filming",
     summary:
       "You can lawfully film police performing their duties in public, as long as you don’t obstruct them.",
     sections: [
@@ -327,7 +327,7 @@ const SCENARIOS = [
   {
     id: "young-people",
     title: "Young People & Police",
-    icon: "🧒",
+    icon: "youth",
     summary:
       "Extra protections apply to people under 18, including support from a responsible adult.",
     sections: [
@@ -352,7 +352,7 @@ const SCENARIOS = [
   {
     id: "protests",
     title: "Protests & Public Spaces",
-    icon: "📣",
+    icon: "megaphone",
     summary:
       "Peaceful protest is lawful, but police have powers around obstruction, disorderly conduct and move-on orders.",
     sections: [
@@ -377,7 +377,7 @@ const SCENARIOS = [
   {
     id: "identifying-particulars",
     title: "Photos, Fingerprints & DNA",
-    icon: "🧬",
+    icon: "fingerprint",
     summary:
       "Police can take identifying particulars in defined situations under the Criminal Investigation (Identifying People) Act 2002.",
     sections: [
@@ -402,7 +402,7 @@ const SCENARIOS = [
   {
     id: "complaints",
     title: "Complaints About Police",
-    icon: "📝",
+    icon: "complaint",
     summary:
       "You can complain about police conduct to WA Police or the Corruption and Crime Commission.",
     sections: [
@@ -547,23 +547,23 @@ const FAQS = [
   {
     q: "Is this app legal advice?",
     detail:
-      "No. This app provides general legal information for Western Australia only. Laws change and every situation is different. For advice about your specific circumstances, contact Legal Aid WA, ALSWA, a community legal centre, or a private lawyer.",
+      "No. This app provides general legal information for Western Australia only. Laws change and every situation is different. For advice about your specific circumstances, make an appointment with Slee Anderson & Pidgeon Lawyers — offices in Bunbury, Busselton, Mandurah and Margaret River.",
   },
 ];
 
 const SITUATIONS = [
-  { label: "I’ve been stopped by police on the street", target: "stopped-questioned", icon: "🚶" },
-  { label: "I’ve been pulled over while driving", target: "vehicle-stops", icon: "🚗" },
-  { label: "Police want to search me or my bag", target: "searches", icon: "🔍" },
-  { label: "I’m being arrested", target: "arrest", icon: "⛓️" },
-  { label: "Police want to interview me", target: "police-interview", icon: "🎙️" },
-  { label: "Police are at my front door", target: "police-home", icon: "🏠" },
-  { label: "I’ve been told to move on", target: "move-on", icon: "🚫" },
-  { label: "I want to film a police interaction", target: "filming-police", icon: "📱" },
-  { label: "This involves someone under 18", target: "young-people", icon: "🧒" },
-  { label: "I’m at a protest", target: "protests", icon: "📣" },
-  { label: "I want to complain about police", target: "complaints", icon: "📝" },
+  { label: "I’ve been stopped by police on the street", target: "stopped-questioned", icon: "person" },
+  { label: "I’ve been pulled over while driving", target: "vehicle-stops", icon: "car" },
+  { label: "Police want to search me or my bag", target: "searches", icon: "search" },
+  { label: "I’m being arrested", target: "arrest", icon: "cuffs" },
+  { label: "Police want to interview me", target: "police-interview", icon: "mic" },
+  { label: "Police are at my front door", target: "police-home", icon: "home" },
+  { label: "I’ve been told to move on", target: "move-on", icon: "moveon" },
+  { label: "I want to film a police interaction", target: "filming-police", icon: "filming" },
+  { label: "This involves someone under 18", target: "young-people", icon: "youth" },
+  { label: "I’m at a protest", target: "protests", icon: "megaphone" },
+  { label: "I want to complain about police", target: "complaints", icon: "complaint" },
 ];
 
 const DISCLAIMER =
-  "This app provides general legal information about Western Australia only — it is not legal advice. Laws change and every situation is different. All referenced legislation is publicly available via legislation.wa.gov.au. For advice, contact Legal Aid WA (1300 650 579), the Aboriginal Legal Service of WA (1800 019 900), or a lawyer.";
+  "This app provides general legal information about Western Australia only — it is not legal advice. Laws change and every situation is different. All referenced legislation is publicly available via legislation.wa.gov.au. For advice about your specific situation, make an appointment with Slee Anderson & Pidgeon Lawyers.";
